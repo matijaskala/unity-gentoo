@@ -19,7 +19,7 @@ RESTRICT="mirror"
 
 # 'webapps' currently disabled in 'profiles/xenial/unity-portage.puse' due to broken upstream net-libs/oxide-qt #
 #	Due to this, net-libs/oxide-qt is soft-blocked when 'webapps' is disabled as oxide-qt must be uninstalled #
-DEPEND="app-backup/deja-dup[nautilus]
+RDEPEND="app-backup/deja-dup[nautilus]
 	gnome-base/gnome-core-libs
 	gnome-base/nautilus
 	gnome-extra/activity-log-manager

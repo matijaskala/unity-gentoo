@@ -26,15 +26,9 @@ RESTRICT="mirror"
 
 S="${WORKDIR}"
 
-RDEPEND=">=sys-apps/systemd-232
+DEPEND=">=sys-apps/systemd-232
 	sys-auth/polkit-pkla-compat
-	unity-base/gsettings-ubuntu-touch-schemas
 	unity-base/session-shortcuts
-	unity-base/unity-language-pack
-	x11-themes/humanity-icon-theme
-	x11-themes/gtk-engines-murrine
-	x11-themes/unity-asset-pool"
-DEPEND="${RDEPEND}
 	!unity-base/dconf-qt
 	dev-libs/boost:=
 	dev-libs/dee:=
@@ -84,6 +78,12 @@ DEPEND="${RDEPEND}
 		dev-python/autopilot
 		dev-util/dbus-test-runner
 		sys-apps/xorg-gtest )"
+RDEPEND="${DEPEND}
+	unity-base/gsettings-ubuntu-touch-schemas
+	unity-base/unity-language-pack
+	x11-themes/humanity-icon-theme
+	x11-themes/gtk-engines-murrine
+	x11-themes/unity-asset-pool"
 
 pkg_setup() {
 	ubuntu-versionator_pkg_setup
