@@ -26,11 +26,11 @@ RESTRICT="mirror"
 
 S="${WORKDIR}"
 
-DEPEND=">=sys-apps/systemd-232
+COMMON_DEPEND=">=sys-apps/systemd-232
 	sys-auth/polkit-pkla-compat
 	unity-base/session-shortcuts
 	!unity-base/dconf-qt
-	dev-libs/boost:=
+	dev-libs/appstream-glib
 	dev-libs/dee:=
 	dev-libs/dbus-glib
 	dev-libs/icu:=
@@ -39,19 +39,18 @@ DEPEND=">=sys-apps/systemd-232
 	dev-libs/libffi
 	dev-libs/libindicate[gtk,introspection]
 	dev-libs/libindicate-qt
-	dev-libs/libindicator
+	dev-libs/libindicator:3=
 	dev-libs/libsigc++:2
-	dev-libs/libunity
 	dev-libs/libunity-misc:=
 	dev-libs/xpathselect
 	dev-python/gconf-python
 	gnome-base/gconf
-	app-text/yelp-tools
 	gnome-base/gnome-desktop:3=
 	gnome-base/gnome-menus:3
 	gnome-base/gnome-session[systemd]
 	gnome-base/gsettings-desktop-schemas
 	gnome-extra/polkit-gnome:0
+	gnome-extra/zeitgeist
 	media-libs/clutter-gtk:1.0
 	media-libs/glew:=
 	sys-apps/dbus[systemd,user-session]
@@ -72,18 +71,22 @@ DEPEND=">=sys-apps/systemd-232
 	virtual/pam
 	x11-misc/appmenu-qt
 	x11-misc/appmenu-qt5
+"
+RDEPEND="${COMMON_DEPEND}
+	unity-base/gsettings-ubuntu-touch-schemas
+	unity-base/unity-language-pack
+	x11-themes/humanity-icon-theme
+	x11-themes/gtk-engines-murrine
+	x11-themes/unity-asset-pool"
+DEPEND="${COMMON_DEPEND}
+	dev-libs/boost:=
+	app-text/yelp-tools
 	doc? ( app-doc/doxygen )
 	test? ( dev-cpp/gmock
 		dev-cpp/gtest
 		dev-python/autopilot
 		dev-util/dbus-test-runner
 		sys-apps/xorg-gtest )"
-RDEPEND="${DEPEND}
-	unity-base/gsettings-ubuntu-touch-schemas
-	unity-base/unity-language-pack
-	x11-themes/humanity-icon-theme
-	x11-themes/gtk-engines-murrine
-	x11-themes/unity-asset-pool"
 
 pkg_setup() {
 	ubuntu-versionator_pkg_setup
